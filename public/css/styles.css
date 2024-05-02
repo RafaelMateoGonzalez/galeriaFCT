@@ -1,0 +1,59 @@
+﻿body {
+    
+}
+
+.carousel-item {
+    
+
+}
+
+.contenido {
+    background-color: white;
+    color: #818963;
+    text-align: center;
+}
+
+#contenido {
+  
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 2px;
+}
+
+.btn-ligth {
+    color: #818963 ;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.btn-ligth2 {
+    color: #f8f9fa;
+    background-color: #818963;
+    border-color: #f8f9fa;
+}
+
+
+
+
+.fondoFormulario {
+    background-color: white;
+    color: #818963;
+    text-align: center;
+    width: 90%;
+    margin-top:10%;
+    margin-bottom:10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 2px;
+    height:80%;
+    
+}
+
+.fondo {
+
+    height: 800px;
+    background-size: cover;
+    background-position: center center;
+
+}

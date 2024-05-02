@@ -1,0 +1,29 @@
+﻿body {
+    background-color: #8d3e3f;
+}
+
+.carousel-item {
+}
+
+.contenido {
+    background-color: white;
+    color: #818963;
+    text-align: center;
+}
+
+#contenido {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 2px;
+}
+
+.btn-ligth {
+    color: #818963;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.secondText {
+    color: #ea087c !important;
+}
