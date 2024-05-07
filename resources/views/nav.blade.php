@@ -40,7 +40,7 @@
                             <a class="nav-link" href="{{ url('/eliminar-evento') }}">Eliminar evento</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/editar-usuario') }}">Editar Usuario</a>
+                            <a class="nav-link" href="{{ url('/users') }}">Editar Usuario</a>
                         </li>
                     @endif
                 @endauth
@@ -48,11 +48,10 @@
                 <!-- Botones condicionales según el estado de la sesión -->
                 @guest
                     <li class="nav-item">
-<<<<<<< HEAD
-                        <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
-=======
-                        <a class="nav-link" href="{{ route('register') }}">Iniciar sesión</a>
->>>>>>> aa2ba57 (version_con_registro)
+
+
+                        <a class="nav-link" href="{{ route('inicioSesion') }}">Iniciar sesión</a>
+
                     </li>
                 @else
                     <li class="nav-item">

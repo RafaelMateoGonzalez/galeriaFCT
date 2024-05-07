@@ -2,23 +2,19 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
+
 use Illuminate\Http\Request;
-=======
+
 use App\Models\User;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Hash;
->>>>>>> aa2ba57 (version_con_registro)
+
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -31,11 +27,8 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-<<<<<<< HEAD
-    public function store(Request $request)
-    {
-        //
-    }
+
+
 
     /**
      * Display the specified resource.
@@ -44,7 +37,7 @@ class UserController extends Controller
     {
         //
     }
-=======
+
 
     public function showRegistrationForm()
     {
@@ -75,11 +68,18 @@ class UserController extends Controller
             return back()->withErrors(['msg' => 'No se pudo registrar el usuario.']);
         }
     }
+
+
+    public function index()
+    {
+        $users = User::all(); // Obtiene todos los usuarios de la base de datos return view('users.usuarios', ['users' => $users]);// Envía los usuarios a la vista
+        return view('usuarios', ['users' => $users]);
+    }
     /**
      * Display the specified resource.
      */
 
->>>>>>> aa2ba57 (version_con_registro)
+
 
     /**
      * Show the form for editing the specified resource.

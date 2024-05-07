@@ -5,28 +5,68 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{ asset('css/formulario.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <title>Document</title>
 </head>
 <body>
-
-@include('nav');
-<br><br><br>
 <!-- resources/views/register.blade.php -->
-<form method="POST" action="{{ route('register') }}">
-    @csrf
-    <label for="name">Nombre:</label>
-    <input type="text" id="name" name="name" required>
+<section class="vh-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 text-black">
 
-    <label for="email">Correo Electrónico:</label>
-    <input type="email" id="email" name="email" required>
+                <div class="px-5 ms-xl-4">
+                    <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
+                    <span class="h1 fw-bold mb-0">Gallery</span>
+                </div>
 
-    <label for="password">Contraseña:</label>
-    <input type="password" id="password" name="password" required>
+                <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-    <label for="is_admin">Es administrador:</label>
-    <input type="checkbox" id="is_admin" name="is_admin">
+                    <form method="POST" action="{{ route('register') }}" style="width: 23rem;">
+                        @csrf
+                        <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Registro</h3>
 
-    <button type="submit">Registrar</button>
-</form>
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type="text" id="name" name="name" class="form-control form-control-lg" required />
+                            <label class="form-label" for="name">Nombre:</label>
+                        </div>
+
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type="email" id="email" name="email" class="form-control form-control-lg" required />
+                            <label class="form-label" for="email">Correo Electrónico:</label>
+                        </div>
+
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type="password" id="password" name="password" class="form-control form-control-lg" required />
+                            <label class="form-label" for="password">Contraseña:</label>
+                        </div>
+
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type="checkbox" id="is_admin" name="is_admin" class="form-check-input" />
+                            <label class="form-check-label" for="is_admin">Es administrador:</label>
+                        </div>
+
+                        <div class="pt-1 mb-4">
+                            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-lg btn-block" type="submit">Registrar</button>
+                        </div>
+                        <p> <a href="{{ route('inicioSesion') }}" class="link-info">¿Ya tienes cuenta?</a></p>
+                    </form>
+
+
+
+                </div>
+
+            </div>
+            <div class="col-sm-6 px-0 d-none d-sm-block">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img3.webp"
+                     alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+            </div>
+        </div>
+    </div>
+</section>
+
+
 </body>
 </html>
