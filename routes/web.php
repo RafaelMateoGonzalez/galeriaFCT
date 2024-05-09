@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\EventoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 
@@ -12,6 +14,7 @@ Route::get('/', function () {
 
 Route::view('/sobre-nosotros', 'sobreNosotros')->name('sobreNosotros');
 Route::view('/inicioSesion', 'login')->name('inicioSesion');
+Route::view('/nuevo-evento', 'nuevoEvento')->name('nuevoEvento');
 
 
 
@@ -29,4 +32,19 @@ Route::post('login', [LoginController::class, 'login']);
 // Salir
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::post('/crear-evento', [EventoController::class, 'crear'])->name('crear_evento');
+
+
+//Route::group(['middleware' => ['is_admin']], function () {
+    // Coloca aquí las rutas que solo pueden ser accedidas por administradores
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    // Otras rutas administrativas
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+
+
+Route::get('/usuarios/{id}/eliminar', [UserController::class, 'eliminar'])->name('eliminar_cuenta');
+Route::post('/usuarios/{id}/cambiar-tipo', [UserController::class, 'cambiarTipo'])->name('cambiar_tipo_cuenta');
+
+
+
+//});

@@ -34,7 +34,7 @@
                 @auth
                     @if (Auth::user()->is_admin)
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/crear-evento') }}">Crear evento</a>
+                            <a class="nav-link" href="{{ url('/nuevo-evento') }}">Crear evento</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/eliminar-evento') }}">Eliminar evento</a>

@@ -31,28 +31,35 @@
                         <div data-mdb-input-init class="form-outline mb-4">
                             <input type="text" id="name" name="name" class="form-control form-control-lg" required />
                             <label class="form-label" for="name">Nombre:</label>
+                            @error('name')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div data-mdb-input-init class="form-outline mb-4">
                             <input type="email" id="email" name="email" class="form-control form-control-lg" required />
                             <label class="form-label" for="email">Correo Electrónico:</label>
+                            @error('email')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div data-mdb-input-init class="form-outline mb-4">
                             <input type="password" id="password" name="password" class="form-control form-control-lg" required />
                             <label class="form-label" for="password">Contraseña:</label>
+                            @error('password')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
-                        <div data-mdb-input-init class="form-outline mb-4">
-                            <input type="checkbox" id="is_admin" name="is_admin" class="form-check-input" />
-                            <label class="form-check-label" for="is_admin">Es administrador:</label>
-                        </div>
+
 
                         <div class="pt-1 mb-4">
                             <button data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-lg btn-block" type="submit">Registrar</button>
                         </div>
                         <p> <a href="{{ route('inicioSesion') }}" class="link-info">¿Ya tienes cuenta?</a></p>
                     </form>
+                    m>
 
 
 

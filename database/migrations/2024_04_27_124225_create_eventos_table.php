@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->dateTime('fecha_evento');
             $table->decimal('precio_entrada', 10, 2);
+            $table->string('foto'); // Columna para la foto del evento
             $table->timestamps();
         });
     }

@@ -20,6 +20,7 @@
             <th>Administrador</th>
             <th>Fecha de Creación</th>
             <th>Fecha de Actualización</th>
+            <th>Acciones</th> <!-- Nueva columna para las acciones -->
         </tr>
         </thead>
         <tbody>
@@ -31,10 +32,27 @@
                 <td>{{ $user->is_admin ? 'Sí' : 'No' }}</td>
                 <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                 <td>{{ $user->updated_at->format('d/m/Y H:i') }}</td>
+                <td>
+                    <!-- Enlace para eliminar cuenta -->
+                    <a href="{{ route('eliminar_cuenta', $user->id) }}" class="btn btn-danger">Eliminar Cuenta</a>
+
+                    <!-- Formulario para cambiar tipo de cuenta -->
+                    <form action="{{ route('cambiar_tipo_cuenta', $user->id) }}" method="post" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-success">
+                            Cambiar Tipo
+                        </button>
+                    </form>
+                </td>
             </tr>
         @endforeach
+
+
+
+
         </tbody>
     </table>
 </div>
+
 </body>
 </html>

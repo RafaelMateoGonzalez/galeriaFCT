@@ -70,6 +70,40 @@ class UserController extends Controller
     }
 
 
+    // Método para eliminar una cuenta de usuario
+
+    public function eliminar($id)
+    {
+        $user = User::findOrFail($id); // Encuentra al usuario por su ID
+
+        // Elimina al usuario
+        $user->delete();
+
+        return redirect()->back()->with('success', 'La cuenta del usuario ha sido eliminada exitosamente.');
+    }
+
+
+    // Método para cambiar el tipo de cuenta de usuario
+    public function cambiarTipo(Request $request, $id)
+    {
+        $user = User::findOrFail($id); // Encuentra al usuario por su ID
+
+        // Intenta actualizar y captura errores si los hay
+        try {
+            // Alternar el estado de is_admin
+            $user->is_admin = $user->is_admin ? 0 : 1;
+            $user->save();
+
+            return redirect()->back()->with('success', 'El tipo de cuenta del usuario ha sido cambiado exitosamente.');
+        } catch (\Exception $e) {
+            \Log::error('Error al actualizar el tipo de usuario: ' . $e->getMessage());
+            return redirect()->back()->withErrors('Error al cambiar el tipo de cuenta del usuario.');
+        }
+    }
+
+
+
+
     public function index()
     {
         $users = User::all(); // Obtiene todos los usuarios de la base de datos return view('users.usuarios', ['users' => $users]);// Envía los usuarios a la vista
