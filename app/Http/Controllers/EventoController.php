@@ -50,9 +50,11 @@ class EventoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function show()
+
     {
-        //
+        $eventos = Evento::orderBy('fecha_evento', 'desc')->paginate(5); // Cambia 5 por cualquier otro número según cuántos eventos por página quieras mostrar
+        return view('index', ['eventos' => $eventos]);
     }
 
     /**
@@ -74,10 +76,7 @@ class EventoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.

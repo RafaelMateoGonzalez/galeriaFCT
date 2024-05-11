@@ -8,14 +8,16 @@ use App\Http\Controllers\UserController;
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+//Route::get('/', function () {return view('index');});
+Route::get('/', [EventoController::class, 'show']);
 
 Route::view('/sobre-nosotros', 'sobreNosotros')->name('sobreNosotros');
 Route::view('/inicioSesion', 'login')->name('inicioSesion');
 Route::view('/nuevo-evento', 'nuevoEvento')->name('nuevoEvento');
 
+
+
+Route::get('/eventos', [EventoController::class, 'show']);
 
 
 

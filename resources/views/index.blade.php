@@ -60,6 +60,13 @@
     <div class="shadow-sm p-3 mb-5 bg-body rounded" id="contenido">
         <h5>Exposiciones disponibles</h5>
 
+
+
+                @include('listaEventos', ['eventos' => $eventos])
+
+
+
+
     </div>
 
 
