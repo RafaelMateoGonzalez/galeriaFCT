@@ -40,7 +40,11 @@
                             <a class="nav-link" href="{{ url('/eliminar-evento') }}">Eliminar evento</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/users') }}">Editar Usuario</a>
+                            <a class="nav-link" href="{{ url('/users') }}">Gestionar Usuarios</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/user/edit') }}">Editar Usuario</a>
                         </li>
                     @endif
                 @endauth

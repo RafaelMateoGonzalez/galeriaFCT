@@ -100,8 +100,26 @@ class UserController extends Controller
             return redirect()->back()->withErrors('Error al cambiar el tipo de cuenta del usuario.');
         }
     }
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:8'
+        ]);
+
+        $user = auth()->user();
+        $user->name = $request->name;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->back()->with('success', 'Tu información ha sido actualizada.');
+    }
 
 
+    public function edit()
+    {
+        return view('modificarCuenta');
+    }
 
 
     public function index()
@@ -118,18 +136,11 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.

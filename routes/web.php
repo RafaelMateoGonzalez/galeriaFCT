@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -21,6 +22,7 @@ Route::get('/eventos', [EventoController::class, 'show']);
 
 
 
+Route::delete('/eventos/{id}', [EventoController::class, 'destroy'])->name('eventos.destroy');
 
 Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('register.show');
 Route::post('/register', [UserController::class, 'store'])->name('register');
@@ -30,6 +32,16 @@ Route::post('/register', [UserController::class, 'store'])->name('register');
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 
+
+Route::post('/entradas', [EntradaController::class, 'store'])->name('entradas.store');
+
+
+
+// Ruta para mostrar el formulario de actualización
+Route::get('/user/edit', [UserController::class, 'edit'])->name('user.edit');
+
+// Ruta para procesar la actualización
+Route::put('/user/update', [UserController::class, 'update'])->name('user.update');
 
 // Salir
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

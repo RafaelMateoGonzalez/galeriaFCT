@@ -1,0 +1,53 @@
+/* Estilos generales del modal */
+#modalTarjeta {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    z-index: 1050;
+}
+
+/* Estilización del formulario y sus elementos */
+#formTarjeta {
+    display: flex;
+    flex-direction: column;
+}
+
+#formTarjeta input[type="text"],
+#formTarjeta input[type="number"],
+#formTarjeta input[type="date"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#formTarjeta button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#formTarjeta button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para hacer el botón de cancelar más neutral */
+#formTarjeta button[type="button"] {
+    background-color: #6c757d;
+}
+
+#formTarjeta button[type="button"]:hover {
+    background-color: #545b62;
+}

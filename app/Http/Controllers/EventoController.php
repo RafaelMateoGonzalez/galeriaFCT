@@ -57,6 +57,16 @@ class EventoController extends Controller
         return view('index', ['eventos' => $eventos]);
     }
 
+
+
+    public function destroy($id)
+    {
+        $evento = Evento::findOrFail($id);
+        $evento->delete();
+        return redirect()->route('/')->with('success', 'Evento eliminado correctamente');
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -97,8 +107,5 @@ class EventoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+
 }

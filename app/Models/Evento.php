@@ -9,4 +9,17 @@ class Evento extends Model
 {
 
     protected $fillable = ['user_id', 'titulo', 'descripcion', 'fecha_evento', 'precio_entrada', 'foto'];
+
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
+
+
+    public function entradas()
+    {
+        return $this->hasMany(Entrada::class);
+    }
+
 }

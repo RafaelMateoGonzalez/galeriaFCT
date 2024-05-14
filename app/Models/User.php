@@ -46,6 +46,10 @@ class User extends Authenticatable
         ];
     }
 
+    public function entradas()
+    {
+        return $this->hasMany(Entrada::class);
+    }
 
 
 }
