@@ -63,7 +63,8 @@ class EventoController extends Controller
     {
         $evento = Evento::findOrFail($id);
         $evento->delete();
-        return redirect()->route('/')->with('success', 'Evento eliminado correctamente');
+        return redirect('/')->with('success', 'Usuario creado exitosamente!');
+
     }
 
 

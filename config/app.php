@@ -4,8 +4,11 @@ return [
 
 
 
-
-
+    'aliases' => [
+        // Otros alias...
+        'Auth' => Illuminate\Support\Facades\Auth::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+    ],
 
 
     /*

@@ -1,39 +1,48 @@
 {{-- resources/views/eventos/listaEventos.blade.php --}}
-<div class="row">
-    @forelse($eventos as $evento)
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                @if($evento->foto)
-                    <img src="{{ asset('storage/' . $evento->foto) }}" class="card-img-top" alt="Imagen del evento">
-                @else
-                    <img src="{{ asset('placeholder-image.png') }}" class="card-img-top" alt="Imagen no disponible">
-                @endif
-                <div class="card-body">
-                    <h5 class="card-title">{{ $evento->titulo }}</h5>
-                    <p class="card-text">{{ $evento->descripcion }}</p>
-                    <p class="card-text"><small class="text-muted">Fecha del evento: {{ \Carbon\Carbon::parse($evento->fecha_evento)->format('d M Y') }}</small></p>
-                    <p>Creado por: {{ $evento->user ? $evento->user->name : 'Usuario desconocido' }}</p>
-                    <p class="card-text">Precio de entrada: {{ number_format($evento->precio_entrada, 2) }}€</p>
+<div class="container">
+    <div class="row">
+        @forelse($eventos as $evento)
+            <div class="col-md-12 mb-4">
+                <div class="card h-100">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            @if($evento->foto)
+                                <img src="{{ asset('storage/' . $evento->foto) }}" class="img-fluid rounded-start" alt="Imagen del evento" style="height: 100%; object-fit: cover;">
+                            @else
+                                <img src="{{ asset('placeholder-image.png') }}" class="img-fluid rounded-start" alt="Imagen no disponible" style="height: 100%; object-fit: cover;">
+                            @endif
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $evento->titulo }}</h5>
+                                <p class="card-text">{{ $evento->descripcion }}</p>
+                                <p class="card-text"><small class="text-muted">Fecha del evento: {{ \Carbon\Carbon::parse($evento->fecha_evento)->format('d M Y') }}</small></p>
+                                <p>Creado por: {{ $evento->user ? $evento->user->name : 'Usuario desconocido' }}</p>
+                                <p class="card-text">Precio de entrada: {{ number_format($evento->precio_entrada, 2) }}€</p>
 
-                    @auth
-                        @if (Auth::user()->is_admin)
-                            <form action="{{ route('eventos.destroy', $evento->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form>
-                        @endif
-                        <button class="btn btn-primary" data-evento-id="{{ $evento->id }}" onclick="mostrarModal(this)">Comprar Entrada</button>
-                    @else
-                        <a href="{{ route('login') }}" class="btn btn-secondary">Necesitas iniciar sesión para comprar una entrada</a>
-                    @endauth
+                                @auth
+                                    @if (Auth::user()->is_admin)
+                                        <form action="{{ route('eventos.destroy', $evento->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        </form>
+                                    @endif
+                                    <button class="btn btn-primary" data-evento-id="{{ $evento->id }}" onclick="mostrarModal(this)">Comprar Entrada</button>
+                                @else
+                                    <a href="{{ route('inicioSesion') }}" class="btn btn-secondary">Necesitas iniciar sesión para comprar una entrada</a>
+                                @endauth
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    @empty
-        <p class="text-center">No hay eventos disponibles en este momento.</p>
-    @endforelse
+        @empty
+            <p class="text-center">No hay eventos disponibles en este momento.</p>
+        @endforelse
+    </div>
 </div>
+
 
 <!-- Modal para ingreso de datos de la tarjeta -->
 <div id="modalTarjeta" style="display: none;">
@@ -49,6 +58,7 @@
         <button type="button" onclick="cerrarModal()">Cancelar</button>
     </form>
 </div>
+
 
 <div class="row">
     <div class="col-12">

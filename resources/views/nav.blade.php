@@ -1,5 +1,9 @@
 <!-- resources/views/nav.blade.php -->
 
+@php
+    use Illuminate\Support\Facades\Auth;
+@endphp
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,9 +47,7 @@
                             <a class="nav-link" href="{{ url('/users') }}">Gestionar Usuarios</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/user/edit') }}">Editar Usuario</a>
-                        </li>
+
                     @endif
                 @endauth
 
@@ -63,6 +65,14 @@
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Cerrar sesión
                         </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/user/edit') }}">Editar Usuario</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/mis-entradas/' . Auth::user()->id) }}">Mis Entradas</a>
+
+                    </li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>

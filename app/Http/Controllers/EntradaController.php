@@ -4,11 +4,26 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Entrada;
+use App\Models\User;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Writer\PngWriter;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 class EntradaController extends Controller
 {
+
+    public function misEntradas(User $user)
+    {
+        $entradas = Entrada::where('user_id', $user->id)->with('evento')->get();
+
+
+
+        return view('misEntradas', compact('user', 'entradas'));
+    }
 
 
 
@@ -32,33 +47,48 @@ class EntradaController extends Controller
      * Store a newly created resource in storage.
      */
 
-
     public function store(Request $request)
     {
-        // Dump and die para depurar los datos recibidos
-        dd($request->all());
-
         // Validar los datos del formulario
         $request->validate([
             'numeroTarjeta' => 'required|numeric',
             'cvv' => 'required|digits:3',
             'fechaExpiracion' => 'required|date|after:today',
             'evento_id' => 'required|integer',
-            'cantidad' => 'required|integer|min:1',
         ]);
+
+        // Obtener el ID del usuario autenticado
+        $user_id = auth()->id();
+
+        if (!$user_id) {
+            return redirect()->route('login')->withErrors('Debe iniciar sesión para comprar una entrada.');
+        }
+
+        // Generar un código único para el QR
+        $codigo = strtoupper(uniqid('ENTRADA'));
 
         // Crear una nueva entrada
         $entrada = new Entrada();
         $entrada->evento_id = $request->input('evento_id');
-        $entrada->user_id = Auth::id();
-        $entrada->codigo = strtoupper(uniqid('ENTRADA'));
+        $entrada->user_id = $user_id;
+        $entrada->codigo = $codigo;
         $entrada->fecha_compra = now();
-        $entrada->cantidad = $request->input('cantidad');
+        $entrada->cantidad = 1; // Establecer la cantidad en 1
         $entrada->save();
 
+        // Generar el QR code
+        $qrCode = new QrCode($codigo);
+        $writer = new PngWriter();
+        $qrCodeImage = $writer->write($qrCode)->getString();
+
+        // Guardar el QR code en un archivo
+        $filePath = 'qrcodes/' . $codigo . '.png';
+        Storage::disk('public')->put($filePath, $qrCodeImage);
+
         // Redirigir con un mensaje de éxito
-        return redirect()->route('entradas.index')->with('success', 'Entrada comprada con éxito.');
+        return redirect('/')->with('success', 'Entrada creada exitosamente!');
     }
+
 
     /**
      * Display the specified resource.

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evento extends Model
 {
+    use HasFactory;
 
     protected $fillable = ['user_id', 'titulo', 'descripcion', 'fecha_evento', 'precio_entrada', 'foto'];
 
@@ -19,7 +20,6 @@ class Evento extends Model
 
     public function entradas()
     {
-        return $this->hasMany(Entrada::class);
+        return $this->hasMany(Entrada::class, 'evento_id');
     }
-
 }

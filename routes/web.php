@@ -28,6 +28,10 @@ Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('
 Route::post('/register', [UserController::class, 'store'])->name('register');
 
 
+//Route::get('/mis-entradas', [EntradaController::class, 'misEntradas'])->name('misEntradas');
+Route::get('/mis-entradas/{user}', [EntradaController::class, 'misEntradas'])->name('misEntradas');
+
+
 // Rutas en web.php
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);

@@ -65,7 +65,7 @@ class UserController extends Controller
         if ($user) {
             return view('index'); }
         else {
-            return back()->withErrors(['msg' => 'No se pudo registrar el usuario.']);
+            return redirect('/')->with('success', 'Usuario creado exitosamente!');
         }
     }
 
