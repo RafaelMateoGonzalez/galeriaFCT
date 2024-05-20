@@ -53,7 +53,7 @@ class EventoController extends Controller
     public function show()
 
     {
-        $eventos = Evento::orderBy('fecha_evento', 'desc')->paginate(5); // Cambia 5 por cualquier otro número según cuántos eventos por página quieras mostrar
+        $eventos = Evento::orderBy('fecha_evento', 'desc')->paginate(4); // Cambia 5 por cualquier otro número según cuántos eventos por página quieras mostrar
         return view('index', ['eventos' => $eventos]);
     }
 

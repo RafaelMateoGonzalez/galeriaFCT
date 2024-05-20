@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+@include('nav');
 <div class="container mt-5">
     <h1>Listado de Usuarios</h1>
     <table class="table">

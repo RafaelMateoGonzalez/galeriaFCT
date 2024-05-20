@@ -63,7 +63,9 @@ class UserController extends Controller
         $user = User::create($userData);
 
         if ($user) {
-            return view('index'); }
+            return redirect()->intended('/');
+            // Cambia 'dashboard' a la ruta deseada después del login// }
+        }
         else {
             return redirect('/')->with('success', 'Usuario creado exitosamente!');
         }

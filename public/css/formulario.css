@@ -1,61 +1,55 @@
-body{
-    margin-top:20px;
-    background:#eee;
-}
-.gradient-brand-color {
-    background-image: -webkit-linear-gradient(0deg, #376be6 0%, #6470ef 100%);
-    background-image: -ms-linear-gradient(0deg, #376be6 0%, #6470ef 100%);
-    color: #fff;
-}
-.contact-info__wrapper {
-    overflow: hidden;
-    border-radius: .625rem .625rem 0 0
+
+body {
+    background-image: url(""); /* Color de fondo claro */
 }
 
-@media (min-width: 1024px) {
-    .contact-info__wrapper {
-        border-radius: 0 .625rem .625rem 0;
-        padding: 5rem !important
-    }
-}
-.contact-info__list span.position-absolute {
-    left: 0
-}
-.z-index-101 {
-    z-index: 101;
-}
-.list-style--none {
-    list-style: none;
-}
-.contact__wrapper {
-    background-color: #fff;
-    border-radius: 0 0 .625rem .625rem
+.min-vh-100 {
+    min-height: 100vh;
 }
 
-@media (min-width: 1024px) {
-    .contact__wrapper {
-        border-radius: .625rem 0 .625rem .625rem
-    }
-}
-@media (min-width: 1024px) {
-    .contact-form__wrapper {
-        padding: 5rem !important
-    }
-}
-.shadow-lg, .shadow-lg--on-hover:hover {
-    box-shadow: 0 1rem 3rem rgba(132,138,163,0.1) !important;
+.card {
+    border-radius: 15px;
 }
 
-.bg-image-vertical {
-    position: relative;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: auto 100%;
+.card-header {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
-@media (min-width: 1025px) {
-    .h-custom-2 {
-        height: 100%;
-    }
+.card-body {
+    padding: 2rem;
+}
+
+.form-control {
+    border-radius: 10px;
+    height: 45px;
+}
+
+textarea.form-control {
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    color:  #f8f9fa !important;
+    background-color: #818963 !important;
+    border-color: #f8f9fa !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.bg-primary {
+    color:  #f8f9fa !important;
+    background-color: #818963 !important;
+    border-color: #f8f9fa !important;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.card-header{
+    color:  #f8f9fa !important;
+    background-color: #818963 !important;
+
 }

@@ -59,13 +59,12 @@
                     <div class="card">
                         <img class="card-img-top" src="https://www.web2020/imagenes/cuadro1.jpg">
                         <div class="card-body">
-                            <h4 class="card-title">Titulo de la tarjeta 1</h4>
+                            <h4 class="card-title">Mejor Galería de arte en Zaragoza 2024</h4>
                             <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lectus sem,
-                                tempor vitae mattis malesuada, ornare sed erat. Pellentesque nulla dui, congue
-                                nec tortor sit amet, maximus mattis dui.
+                                Elegidos por la crítica como mejor  galería de arte de Zaragoza
                             </p>
-                            <a href="#" class="btn btn-ligth2">Entrar</a>
+
+                            <a class="btn btn-ligth2" href="{{ url('/') }}" >Eventos</a>
                         </div>
                     </div>
                 </div>
@@ -73,13 +72,11 @@
                 <div class="col-md">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Titulo de la tarjeta 2</h4>
+                            <h4 class="card-title">Diversidad en nuestras exposiciones</h4>
                             <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lectus sem,
-                                tempor vitae mattis malesuada, ornare sed erat. Pellentesque nulla dui, congue
-                                nec tortor sit amet, maximus mattis dui.
+                               Nos esforzamos por tener una gran variedad de exposiciones para dar variada experiencia a nuestros usuarios.
                             </p>
-                            <a href="#" class="btn btn-light2">Entrar</a>
+                            <a class="btn btn-ligth2" href="{{ url('/') }}" >Eventos</a>
                         </div>
                         <img class="card-img-bottom" src="https://www.web2020/imagenes/cuadro2.jpg">
                     </div>

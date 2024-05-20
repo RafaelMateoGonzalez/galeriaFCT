@@ -18,6 +18,7 @@
 
 {{-- resources/views/user/edit.blade.php --}}
 @include('nav')
+<br><br><br>
     <div class="container">
         <h2>Actualizar Información</h2>
         <form method="POST" action="{{ route('user.update') }}">
@@ -35,7 +36,7 @@
                 <label for="password">Nueva Contraseña:</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
-
+            <br>
             <button type="submit" class="btn btn-primary">Actualizar</button>
         </form>
     </div>

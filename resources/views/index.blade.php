@@ -19,23 +19,23 @@
     <div class="carousel-inner">
         <div class="carousel-item fondo active" style="background-image: url('{{ asset('img/imagen6.jpg') }}')">
             <div class="carousel-caption">
-                <h2>Exposiciones arte Europeo S.XVIII</h2>
+                <h2>Exposiciones de pintura</h2>
                 <p>Exposicion de arte abstracto</p>
-                <p><a class="btn btn-lg btn-light" href="#">Entradas</a></p>
+
             </div>
         </div>
         <div class="carousel-item fondo" style="background-image: url('{{ asset('img/imagen4.jpg') }}')">
             <div class="carousel-caption">
-                <h2>Exposiciones arte abstracto</h2>
+                <h2>Exposiciones de escultura</h2>
                 <p>Exposicion de arte abstracto</p>
-                <p><a class="btn btn-lg btn-light" href="#">Entradas</a></p>
+
             </div>
         </div>
         <div class="carousel-item fondo" style="background-image: url('{{ asset('img/imagen7.jpg') }}')">
             <div class="carousel-caption">
-                <h2>Exposiciones renacimiento</h2>
+                <h2>Exposiciones de arquitectura</h2>
                 <p>Exposicion de arte abstracto</p>
-                <p><a class="btn btn-lg btn-light" href="#">Entradas</a></p>
+              
             </div>
         </div>
     </div>
@@ -75,7 +75,7 @@
 
 <div class="mb-3 bg-light" style="text-align:center;color:#818963 ">
     <div class="mb-4">
-        <h2>Sobre Nosotros</h2>
+        <h2>Contacto</h2>
     </div>
 
 
