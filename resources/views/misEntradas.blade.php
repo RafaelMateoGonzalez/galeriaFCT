@@ -11,7 +11,7 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <title>Document</title>
 </head>
-<body style="background-image: url('{{ asset('img/imagen6.jpg') }}')">
+<body>
 <br><br>
 <!-- resources/views/entradas/mis-entradas.blade.php -->
 @include('nav')

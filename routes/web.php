@@ -45,8 +45,7 @@ Route::post('/entradas', [EntradaController::class, 'store'])->name('entradas.st
 Route::get('/user/edit', [UserController::class, 'edit'])->name('user.edit');
 
 // Ruta para procesar la actualización
-Route::put('/user/update', [UserController::class, 'update'])->name('user.update');
-
+Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
 // Salir
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 

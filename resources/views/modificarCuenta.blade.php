@@ -19,27 +19,41 @@
 {{-- resources/views/user/edit.blade.php --}}
 @include('nav')
 <br><br><br>
-    <div class="container">
-        <h2>Actualizar Información</h2>
-        <form method="POST" action="{{ route('user.update') }}">
-            @csrf
-            @method('PUT')
 
-            {{-- Campo para el nombre --}}
-            <div class="form-group">
-                <label for="name">Nombre:</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ auth()->user()->name }}" required>
-            </div>
+<div class="container">
+    <h2>Actualizar Información</h2>
+    <form method="POST" action="{{ route('user.update') }}">
+        @csrf
 
-            {{-- Campo para la contraseña nueva --}}
-            <div class="form-group">
-                <label for="password">Nueva Contraseña:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary">Actualizar</button>
-        </form>
-    </div>
+        {{-- Campo para el nombre --}}
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ auth()->user()->name }}" required>
+        </div>
+
+        {{-- Campo para la contraseña actual --}}
+        <div class="form-group">
+            <label for="current_password">Contraseña Actual:</label>
+            <input type="password" class="form-control" id="current_password" name="current_password" required>
+        </div>
+
+        {{-- Campo para la nueva contraseña --}}
+        <div class="form-group">
+            <label for="new_password">Nueva Contraseña:</label>
+            <input type="password" class="form-control" id="new_password" name="new_password" required>
+        </div>
+
+        {{-- Campo para confirmar la nueva contraseña --}}
+        <div class="form-group">
+            <label for="new_password_confirmation">Confirmar Nueva Contraseña:</label>
+            <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation" required>
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+</div>
+
 
 
 </body>

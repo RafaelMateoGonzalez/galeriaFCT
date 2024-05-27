@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -63,13 +63,14 @@ class UserController extends Controller
         $user = User::create($userData);
 
         if ($user) {
+            Auth::login($user); // Iniciar sesión del usuario
             return redirect()->intended('/');
-            // Cambia 'dashboard' a la ruta deseada después del login// }
-        }
-        else {
+            // Cambia '/' a la ruta deseada después del login
+        } else {
             return redirect('/')->with('success', 'Usuario creado exitosamente!');
         }
     }
+
 
 
     // Método para eliminar una cuenta de usuario
@@ -102,22 +103,29 @@ class UserController extends Controller
             return redirect()->back()->withErrors('Error al cambiar el tipo de cuenta del usuario.');
         }
     }
+
     public function update(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'password' => 'required|string|min:8'
+            'current_password' => 'required|string',
+            'new_password' => 'required|string|min:8|confirmed'
         ]);
 
         $user = auth()->user();
+
+        // Verificar que la contraseña actual sea correcta
+        if (!Hash::check($request->current_password, $user->password)) {
+            return redirect()->back()->withErrors(['current_password' => 'La contraseña actual es incorrecta.']);
+        }
+
+        // Actualizar la información del usuario
         $user->name = $request->name;
-        $user->password = Hash::make($request->password);
+        $user->password = Hash::make($request->new_password);
         $user->save();
 
         return redirect()->back()->with('success', 'Tu información ha sido actualizada.');
     }
-
-
     public function edit()
     {
         return view('modificarCuenta');

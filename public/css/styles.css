@@ -28,13 +28,14 @@
 }
 
 .btn-ligth2 {
-    color: #f8f9fa;
-    background-color: #818963;
+    color: #f8f9fa !important;
+    background-color: #980789 !important;
     border-color: #f8f9fa;
 }
 
-
-
+.purple {
+    color:#980789!important;
+}
 
 .fondoFormulario {
     background-color: white;
