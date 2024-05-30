@@ -26,6 +26,7 @@
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Eliminar</button>
                                     </form>
+                                    <a href="{{ route('event.edit', $evento->id) }}" class="btn btn-warning">Modificar</a>
                                 @endif
                                 <button class="btn btn-primary" data-evento-id="{{ $evento->id }}" onclick="mostrarModal(this)">Comprar Entrada</button>
                             @else

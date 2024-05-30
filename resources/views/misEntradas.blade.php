@@ -9,6 +9,7 @@
     <link href="{{ asset('css/tickets.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
     <title>Document</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
     <p>Usuario: {{ $user->name }}</p>
 
     @foreach($entradas as $entrada)
-        <div class="ticket">
+        <div class="ticket" id="entrada-{{ $entrada->id }}">
             <div class="ticket-left">
                 <h1>{{ $entrada->evento->titulo }} <span>Evento</span></h1>
                 <div class="ticket-info">
@@ -48,6 +49,7 @@
                     </div>
                 </div>
             </div>
+            <button class="print-button" data-id="{{ $entrada->id }}">Imprimir Entrada</button>
             <div class="ticket-right">
                 <div class="eye"></div>
                 <div class="number">
@@ -63,6 +65,28 @@
 </div>
 
 
+
+<script>
+
+    $(document).ready(function() {
+        $('.print-button').on('click', function() {
+            var entradaId = $(this).data('id');
+            var entradaDiv = $('#entrada-' + entradaId).clone();
+            entradaDiv.find('.print-button').remove(); // Remover el botón de imprimir del clon
+            var entradaHtml = entradaDiv.prop('outerHTML');
+
+            var printWindow = window.open('', '_blank', 'width=800,height=600');
+            printWindow.document.write('<html><head><title>Imprimir Entrada</title>');
+            printWindow.document.write('<link rel="stylesheet" type="text/css" href="{{ asset('css/estilos.css') }}">');
+            printWindow.document.write('</head><body>');
+            printWindow.document.write(entradaHtml);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        });
+    });
+
+</script>
 
 </body>
 </html>

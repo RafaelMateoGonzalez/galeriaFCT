@@ -4,23 +4,23 @@
 <body>
 @include('nav');
 <br><br><br>
+
 <div class="contenido">
     <h2 class="purple">Sobre nosotros</h2>
+
 
     <br />
 
     <!-- Parte de experiencia 1-->
-    <div class="shadow-sm p-3 mb-5 bg-body rounded" id="contenido">
+    <div class="shadow-sm p-3 mb-5 bg-body rounded" id="experiencia">
         <h3>Experiencia</h3>
 
         <div class="row">
             <div class="col-lg-4">
                 <!-- Imagen izquierda -->
-
-
                 <img src="{{ asset('img/about1.jpg') }}" class="img-fluid mb-3" alt="Descripción imagen izquierda">
                 <!-- Texto para la imagen izquierda -->
-                <p class="text-black-50"><span>Gran experiencia en el sectro de las exposiciones</span> nos abalan años siendo lideres a nivel europeo en el sector de las exposiones artisiticas en Europea</p>
+                <p class="text-black-50"><span>Gran experiencia en el sector de las exposiciones</span> nos avalan años siendo líderes a nivel europeo en el sector de las exposiciones artísticas en Europa.</p>
             </div>
             <div class="col-lg-4">
                 <!-- Contenido del centro, puede estar vacío o contener más información -->
@@ -28,7 +28,7 @@
 
             <div class="col-lg-4">
                 <!-- Imagen derecha -->
-                <img src="{{ asset('img/about3.jpg') }}" class="img-fluid mb-3" alt="Descripción imagen izquierda">
+                <img src="{{ asset('img/about3.jpg') }}" class="img-fluid mb-3" alt="Descripción imagen derecha">
                 <!-- Texto para la imagen derecha -->
                 <p class="secondText text-black-50">Contamos con opciones de audio guía que ofrecen una narración profesional sobre las obras y la galería, similar a lo que se encontraría en una visita física.</p>
             </div>
@@ -38,58 +38,39 @@
                 <!-- Contenido adicional o pie de página -->
             </div>
         </div>
-
-
     </div>
 
-
-</div>
-
-
-<!-- Parte de reconocimientos-->
-<div class="contenido">
-    <div class="shadow-sm p-3 mb-5 bg-body rounded" id="contenido">
-
-
-        <br>
-        <div class="container">
-            <h1>Reconocimientos de nuestras obras mas destacadas</h1>
-            <div class="row">
-                <div class="col-md">
-                    <div class="card">
-                        <img class="card-img-bottom" src= "{{ asset('img/nosotros1.jpg') }}">
-
-                        <div class="card-body">
-                            <h4 class="card-title">Mejor Galería de arte en Zaragoza 2024</h4>
-                            <p class="card-text">
-                                Elegidos por la crítica como mejor  galería de arte de Zaragoza
-                            </p>
-
-                            <a class="btn btn-ligth2" href="{{ url('/') }}" >Eventos</a>
+    <!-- Parte de reconocimientos-->
+    <div class="contenido">
+        <div class="shadow-sm p-3 mb-5 bg-body rounded" id="reconocimientos">
+            <br>
+            <div class="container">
+                <h1>Reconocimientos de nuestras obras más destacadas</h1>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="card">
+                            <img class="card-img-bottom" src="{{ asset('img/nosotros1.jpg') }}" alt="Mejor Galería de arte en Zaragoza 2024">
+                            <div class="card-body">
+                                <h4 class="card-title">Mejor Galería de arte en Zaragoza 2024</h4>
+                                <p class="card-text">Elegidos por la crítica como mejor galería de arte de Zaragoza</p>
+                                <a class="btn btn-ligth2" href="{{ url('/') }}">Eventos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Diversidad en nuestras exposiciones</h4>
+                                <p class="card-text">Nos esforzamos por tener una gran variedad de exposiciones para dar variada experiencia a nuestros usuarios.</p>
+                                <a class="btn btn-ligth2" href="{{ url('/') }}">Eventos</a>
+                            </div>
+                            <img class="card-img-bottom" src="{{ asset('img/nosotros4.jpg') }}" alt="Diversidad en nuestras exposiciones">
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Diversidad en nuestras exposiciones</h4>
-                            <p class="card-text" >
-                               Nos esforzamos por tener una gran variedad de exposiciones para dar variada experiencia a nuestros usuarios.
-                            </p>
-                            <a class="btn btn-ligth2" href="{{ url('/') }}" >Eventos</a>
-                        </div>
-                        <img class="card-img-bottom" src= "{{ asset('img/nosotros4.jpg') }}">
-
-                    </div>
-                </div>
-
             </div>
         </div>
-
     </div>
-
-</div>
 
 
 

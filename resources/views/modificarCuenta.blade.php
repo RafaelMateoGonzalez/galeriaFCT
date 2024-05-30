@@ -20,38 +20,44 @@
 @include('nav')
 <br><br><br>
 
-<div class="container">
-    <h2>Actualizar Información</h2>
-    <form method="POST" action="{{ route('user.update') }}">
-        @csrf
 
-        {{-- Campo para el nombre --}}
-        <div class="form-group">
-            <label for="name">Nombre:</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ auth()->user()->name }}" required>
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h2 class="card-title">Actualizar Información</h2>
         </div>
+        <div class="card-body">
+            <form method="POST" action="{{ route('user.update') }}">
+                @csrf
 
-        {{-- Campo para la contraseña actual --}}
-        <div class="form-group">
-            <label for="current_password">Contraseña Actual:</label>
-            <input type="password" class="form-control" id="current_password" name="current_password" required>
+                {{-- Campo para el nombre --}}
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ auth()->user()->name }}" required>
+                </div>
+
+                {{-- Campo para la contraseña actual --}}
+                <div class="form-group">
+                    <label for="current_password">Contraseña Actual:</label>
+                    <input type="password" class="form-control" id="current_password" name="current_password" required>
+                </div>
+
+                {{-- Campo para la nueva contraseña --}}
+                <div class="form-group">
+                    <label for="new_password">Nueva Contraseña:</label>
+                    <input type="password" class="form-control" id="new_password" name="new_password" required>
+                </div>
+
+                {{-- Campo para confirmar la nueva contraseña --}}
+                <div class="form-group">
+                    <label for="new_password_confirmation">Confirmar Nueva Contraseña:</label>
+                    <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation" required>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-ligth2">Actualizar</button>
+            </form>
         </div>
-
-        {{-- Campo para la nueva contraseña --}}
-        <div class="form-group">
-            <label for="new_password">Nueva Contraseña:</label>
-            <input type="password" class="form-control" id="new_password" name="new_password" required>
-        </div>
-
-        {{-- Campo para confirmar la nueva contraseña --}}
-        <div class="form-group">
-            <label for="new_password_confirmation">Confirmar Nueva Contraseña:</label>
-            <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation" required>
-        </div>
-
-        <br>
-        <button type="submit" class="btn btn-primary">Actualizar</button>
-    </form>
+    </div>
 </div>
 
 

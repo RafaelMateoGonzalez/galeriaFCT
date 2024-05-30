@@ -21,3 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+
+//Imprimir entrada
+

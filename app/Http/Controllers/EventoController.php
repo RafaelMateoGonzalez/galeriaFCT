@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Evento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class EventoController extends Controller
 {
@@ -92,17 +93,43 @@ class EventoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $evento = Evento::findOrFail($id);
+        return view('modificarEvento', compact('evento'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'event_name' => 'required|string|max:255',
+            'event_date' => 'required|date',
+            'event_description' => 'required|string',
+            'event_price' => 'required|numeric', // Validación para el precio
+            'event_image' => 'nullable|image|max:2048', // Validación para la imagen
+        ]);
+
+        $evento = Evento::findOrFail($id);
+        $evento->titulo = $request->input('event_name');
+        $evento->fecha_evento = $request->input('event_date');
+        $evento->descripcion = $request->input('event_description');
+        $evento->precio_entrada = $request->input('event_price'); // Actualizar el precio
+
+        // Manejar la subida de la imagen solo si hay una nueva imagen
+        if ($request->hasFile('event_image')) {
+            // Borrar la imagen anterior si existe
+            if ($evento->foto) {
+                Storage::delete('public/' . $evento->foto);
+            }
+
+            // Subir la nueva imagen
+            $path = $request->file('event_image')->store('eventos', 'public');
+            $evento->foto = $path;
+        }
+
+        $evento->save();
+
+        return redirect('/')->with('success', 'Evento creado exitosamente!');
     }
 
     /**

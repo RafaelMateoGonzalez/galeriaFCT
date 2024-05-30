@@ -16,7 +16,9 @@ class Evento extends Model
     {
         return $this->belongsTo('App\Models\User', 'user_id');
     }
-
+    protected $casts = [
+        'fecha_evento' => 'datetime',
+    ];
 
     public function entradas()
     {

@@ -20,7 +20,7 @@
     <div class="row w-100">
         <div class="col-md-8 col-lg-6 mx-auto">
             <div class="card shadow-lg border-0 rounded-lg">
-                <div class="card-header  text-center py-4">
+                <div class="card-header  text-center py-4 btn-ligth2">
                     <h3>Crear Nuevo Evento</h3>
                 </div>
                 <div class="card-body p-4">
@@ -50,7 +50,7 @@
                             <label for="foto" class="form-label">Foto del Evento</label>
                             <input type="file" class="form-control" id="foto" name="foto" required>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Crear Evento</button>
+                        <button type="submit" class="btn btn-ligth2">Crear Evento</button>
                     </form>
                 </div>
             </div>
