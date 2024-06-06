@@ -16,6 +16,9 @@
 <body>
 @include('nav')
 <br><br><br>
+
+@auth
+    @if (Auth::user()->is_admin)
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="row w-100">
         <div class="col-md-8 col-lg-6 mx-auto">
@@ -58,7 +61,11 @@
     </div>
 </div>
 
+    @endif
+@else
+    <h2>Necesita permisos de administrador</h2>
 
+@endauth
 
 </body>
 </html>

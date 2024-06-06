@@ -20,6 +20,9 @@
 @include('nav')
 <br><br><br>
 
+@auth
+    @if (Auth::user()->is_admin)
+
 <div class="container mt-5">
     <div class="card shadow-sm">
         <div class="card-header">
@@ -81,6 +84,11 @@
     </div>
 </div>
 
+    @endif
+@else
+    <h2>Necesita permisos de administrador</h2>
+
+@endauth
 
 
 </body>

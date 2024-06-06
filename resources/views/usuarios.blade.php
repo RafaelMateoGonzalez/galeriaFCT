@@ -10,6 +10,10 @@
 </head>
 <body>
 @include('nav');
+
+@auth
+    @if (Auth::user()->is_admin)
+
 <div class="container mt-5">
     <h1>Listado de Usuarios</h1>
     <table class="table">
@@ -54,6 +58,14 @@
         </tbody>
     </table>
 </div>
+
+    @endif
+@else
+    <br><br>
+    <h2>Necesita permisos de administrador</h2>
+
+@endauth
+
 
 </body>
 </html>
