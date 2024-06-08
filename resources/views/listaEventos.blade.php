@@ -62,8 +62,10 @@
 
 <div class="row">
     <div class="col-12">
-        {{ $eventos->links() }} <!-- Componente de paginación -->
+        {{ $eventos->links('pagination::bootstrap-4') }}
     </div>
 </div>
+
+
 <script src="{{ asset('js/script.js') }}"></script>
 <link href="{{ asset('css/tarjeta.css') }}" rel="stylesheet" />
